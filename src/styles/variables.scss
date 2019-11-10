@@ -1,0 +1,133 @@
+// $modalButtonBackgroundColor:null;
+// $modalButtonColor:null;
+// $modalButtonHoverColor:null;
+// $modalButtonHoverBackgroundColor:null; 
+
+@mixin themify($themes: $themes) {
+    @each $theme, $map in $themes {
+  
+      .theme-#{$theme} & {
+        $theme-map: () !global;
+        @each $key, $submap in $map {
+          $value: map-get(map-get($themes, $theme), '#{$key}');
+          $theme-map: map-merge($theme-map, ($key: $value)) !global;
+        }
+  
+        @content;
+        $theme-map: null !global;
+      }
+  
+    }
+  }
+
+  @function themed($key) {
+    @return map-get($theme-map, $key);
+  }
+
+
+  $themes:(
+    basic: (
+        mainTextColor:#292A2D,
+        primaryColor: #fff,
+        secondaryColor:#6B757D,
+        largeButtonColor:#2697FF,
+        largeButtonBackgroundColor:#fff,
+        largeButtonHoverColor:#fff,
+      largeButtonHoverBackgroundColor:#2697FF,
+        padButtonTextColor:#2E3033,
+        padButtonHoverTextColor:#2E3033,
+        padButtonBackgroundColor:#F8F9FB,
+        padButtonHoverBackgroundColor:rgb(219, 220, 223),
+        appBackgroundColor:#fff,
+        modalBackgroundColor:#fff,
+        modalTextColor:#292A2D,
+        modalButtonBackgroundColor:#6B757D,
+        modalButtonColor:#fff,
+        modalButtonHoverColor:#fff,
+        atmScreenBackground:#fff,
+        atmScreenColor:#292A2D,
+        modalButtonHoverBackgroundColor:rgb(118, 131, 141),
+        atmBoxShadow:(0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)),
+      themeSelectorBoxShadow: (0 19px 38px rgba(0,0,0,0.20), 0 15px 12px rgba(0,0,0,0)),  
+    ),
+    dark: (
+      mainTextColor:#fff,
+      primaryColor: #333333,
+      secondaryColor:#6B757D,
+      largeButtonColor:#fff,
+      largeButtonBackgroundColor:#424242,
+      largeButtonHoverColor:#fff,
+      largeButtonHoverBackgroundColor:#88898e,
+      padButtonTextColor:#fff,
+      padButtonHoverTextColor:#fff,
+      padButtonBackgroundColor:#424242,
+      padButtonHoverBackgroundColor:#88898e,
+      appBackgroundColor:#212121,
+      modalBackgroundColor:#333,
+      modalTextColor:#fff,
+      modalButtonBackgroundColor:#424242,
+      modalButtonColor:#fff,
+      modalButtonHoverColor:#fff,
+      atmScreenBackground:#333333,
+      atmScreenColor:#fff,
+      modalButtonHoverBackgroundColor:#88898e,
+      atmBoxShadow:0,
+      themeSelectorBoxShadow:0,    
+    ),
+    red:(
+      mainTextColor:#fff,
+      primaryColor: #f75d52,
+      secondaryColor:#6B757D,
+      largeButtonColor:#fff,
+      largeButtonBackgroundColor:#e23d31,
+      largeButtonHoverColor:#fff,
+      largeButtonHoverBackgroundColor:#900900,
+      padButtonTextColor:#fff,
+      padButtonHoverTextColor:#fff,
+      padButtonBackgroundColor:#e23d31,
+      padButtonHoverBackgroundColor:#900900,
+      appBackgroundColor:#f44336,
+      modalBackgroundColor:#f75d52,
+      modalTextColor:#fff,
+      modalButtonBackgroundColor:#e23d31,
+      modalButtonColor:#fff,
+      modalButtonHoverColor:#fff,
+      atmScreenBackground:#f75d52,
+      atmScreenColor:#fff,
+      modalButtonHoverBackgroundColor:#900900,
+      atmBoxShadow:0,
+      themeSelectorBoxShadow:0,    
+    )
+);
+
+
+
+%flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%flex-container-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+%button-row-triple-button{
+    display: flex;
+    justify-content: space-around;
+    width:100%;
+}
+
+%atm-button-container{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+%button-row-double-button{
+    display: flex;
+    justify-content: space-around;
+}

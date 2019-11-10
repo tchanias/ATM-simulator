@@ -1,0 +1,191 @@
+@import "./variables.scss";
+.theme-container{ 
+    height: 100%; 
+    width:100%;
+}
+
+.modal-content{
+    @include themify($themes) { 
+        background-color:themed('modalBackgroundColor');
+        color:themed('modalTextColor');
+    }
+    .modal-header{
+        font-size: 25px;
+        font-weight: 600;
+    }
+    .modal-footer{
+        .modal-close-button{
+            @include themify($themes) { 
+                background-color:themed('modalButtonBackgroundColor');
+                color:themed('modalButtonColor');
+                &:hover{
+                    background-color:themed('modalButtonHoverBackgroundColor');
+                    color:themed('modalButtonHoverColor');
+                }
+            }
+        }
+    }
+    
+}
+.MuiPaper-root.MuiMenu-paper.MuiPaper-elevation8.MuiPopover-paper{
+    .MuiList-root.MuiMenu-list{
+        @include themify($themes) { 
+            background-color:themed('modalBackgroundColor');
+                color:themed('modalTextColor');
+        }
+    }
+}
+
+
+
+button:focus{
+    outline: none!important;
+}
+
+.bill{
+    min-width: 45px;
+    display: inline-block;
+}
+
+.atm-container{ 
+    @include themify($themes) { 
+    @extend %flex-container-column; 
+    height: 100%; 
+    background-color: themed('appBackgroundColor');
+    }
+
+    .select-container{
+        @include themify($themes){
+            box-shadow:themed('themeSelectorBoxShadow');
+            background-color: themed('primaryColor');
+            color:themed('mainTextColor');
+        }
+
+        position: absolute;
+        top:0px;
+        border-radius: 4px;
+        padding:10px;
+        & :after{
+            display: none;
+        }
+        & :before{
+            display: none;
+        }
+        &:focus{
+            
+        }
+
+        .select-input{
+            @include themify($themes){
+             
+                color:themed('mainTextColor');
+            }
+            .MuiSelect-select{
+                &:focus{
+                    @include themify($themes){
+                        background-color: themed('primaryColor');
+                    }
+
+                }
+            }
+            >div{
+                padding-right: 0px;
+            }
+            .MuiSelect-icon{
+                display: none;
+            }
+        }
+    }
+
+    .atm-pad-container{
+    @extend %flex-container-column; 
+    max-width:300px;
+    max-height:500px;
+    border-radius: 4%;
+    width:100%;
+    height:100%;
+    @include  themify($themes){
+    box-shadow: themed('atmBoxShadow');
+    background-color: themed('primaryColor');
+    }
+    }
+    .atm-pad-content{
+        @extend %flex-container-column;
+        width:100%;
+        height:100%;
+        
+        
+        .atm-screen-container{
+            width:100%;
+            padding: 10px 0px;
+            .atm-screen{
+                @include themify($themes){
+                    background-color: themed('atmScreenBackground');
+                    color: themed('atmScreenColor')
+                }
+                
+                border:0px;
+                width:100%;
+                text-align: right;
+                font-size: 44px;
+                font-weight: 600;
+               padding:10px 15px;
+            }
+            
+        }
+        .atm-button-container{
+            padding:20px 20px;
+            width:100%;
+            height:100%;
+            @extend %atm-button-container;
+            .atm-button-row{
+                @extend %button-row-triple-button;
+
+
+
+                .atm-pad-button-inv{
+                    visibility: hidden;
+                }
+            }
+        }
+        .action-button-container{
+            width:100%;
+            height:25%;
+            padding:0px 20px;
+            @extend %flex-container;
+            .action-button{
+                width:100%;
+                height: 40px;
+                padding:0;
+                @include themify($themes) { 
+                    color: themed('largeButtonColor');
+                    background-color:  themed('largeButtonBackgroundColor');
+                }
+                &:hover{
+                    @include themify($themes) { 
+                        background-color: themed('largeButtonHoverBackgroundColor');
+                        color:themed('largeButtonHoverColor');
+                    }
+                }
+            }
+            
+        }
+        
+
+        
+    }
+   
+    .atm-pad-button{
+        @include themify($themes) { 
+            background-color: themed('padButtonBackgroundColor');
+            color:themed('padButtonTextColor');
+        }
+        &:hover{
+            @include themify($themes) { 
+            background-color: themed('padButtonHoverBackgroundColor');
+            color:themed('padButtonHoverTextColor');
+            }
+        }
+    }
+    
+}
