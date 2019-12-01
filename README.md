@@ -8,3 +8,5 @@ To run this application you must execute the following commands:
 ### yarn install or npm install
 ## Run the application locally
 ### yarn start or npm start
+## Hooks example
+### You can checkout the 'hooks' branch to find the basic react hooks implementation of the app.
